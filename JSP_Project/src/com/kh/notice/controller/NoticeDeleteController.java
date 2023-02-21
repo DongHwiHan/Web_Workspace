@@ -15,49 +15,64 @@ import com.kh.notice.model.service.NoticeService;
 @WebServlet("/delete.no")
 public class NoticeDeleteController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public NoticeDeleteController() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
 
 	/**
-	 * @see HttpServlet#HttpServlet()
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	public NoticeDeleteController() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		int nno = Integer.parseInt(request.getParameter("nno"));
-
+		
 		/*
-		 * UPDATE NOTICE SET STATUS = 'N' WHERE NOTICE_NO = ${nno}
+		 * UPDATE NOTICE
+		 * SET STATUS = 'N'
+		 * WHERE NOTICE_NO = ${nno}
+		 * 
 		 */
-
+		
 		int result = new NoticeService().deleteNotice(nno);
-
-		if (result > 0) {
-
-			request.getSession().setAttribute("alertMsg", "공지사항 삭제 완료");
-
-			response.sendRedirect(request.getContextPath() + "/list.no");
-
-		} else {
-
-			request.getSession().setAttribute("errorMsg", "공지사항 삭제 실패");
+		
+		if(result > 0) {
+			
+			request.getSession().setAttribute("alertMsg", "성공적으로 공지사항이 삭제되었습니다");
+			 
+			response.sendRedirect( request.getContextPath()  +"/list.no");
+			
+		}else {
+			request.setAttribute("errorMsg", "공지사항 삭제 실패");
 			request.getRequestDispatcher("views/common/errorPage.jsp").forward(request, response);
 		}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}

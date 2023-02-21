@@ -3,15 +3,15 @@ package com.kh.notice.model.vo;
 import java.sql.Date;
 
 public class Notice {
-
-	private int noticeNo; // NOTICE_NO
-	private String noticeTitle; // NOTICE_TITLE
-	private String noticeContent; // NOTICE_CONTENT
-	private String noticeWriter;// NOTICE_WRITER
-	private int count;// COUNT
-	private Date createDate;// CREATE_DATE
-	private String status;// STATUS
-
+	
+	private int noticeNo; //	NOTICE_NO
+	private String noticeTitle;//	NOTICE_TITLE
+	private String noticeContent; //	NOTICE_CONTENT
+	private String noticeWriter;//	NOTICE_WRITER
+	private int count;//	COUNT
+	private Date createDate;//	CREATE_DATE
+	private String status;//	STATUS
+	
 	public Notice() {
 		super();
 	}
@@ -44,7 +44,7 @@ public class Notice {
 		this.noticeContent = noticeContent;
 		this.noticeWriter = noticeWriter;
 		this.createDate = createDate;
-	}
+	}	
 
 	public int getNoticeNo() {
 		return noticeNo;
@@ -74,8 +74,8 @@ public class Notice {
 		return noticeWriter;
 	}
 
-	public void setNoticeWriter(String notticeWriter) {
-		this.noticeWriter = notticeWriter;
+	public void setNoticeWriter(String noticeWriter) {
+		this.noticeWriter = noticeWriter;
 	}
 
 	public int getCount() {
@@ -108,5 +108,10 @@ public class Notice {
 				+ ", noticeWriter=" + noticeWriter + ", count=" + count + ", createDate=" + createDate + ", status="
 				+ status + "]";
 	}
-
+	
+	
+	
+	
+	
+	
 }

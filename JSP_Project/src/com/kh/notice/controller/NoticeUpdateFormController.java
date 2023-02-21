@@ -1,7 +1,6 @@
 package com.kh.notice.controller;
 
 import java.io.IOException;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -18,11 +17,12 @@ import com.kh.notice.model.vo.Notice;
 public class NoticeUpdateFormController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    /**	
+    /**
      * @see HttpServlet#HttpServlet()
      */
     public NoticeUpdateFormController() {
         super();
+        // TODO Auto-generated constructor stub
     }
 
 	/**
@@ -32,10 +32,13 @@ public class NoticeUpdateFormController extends HttpServlet {
 		
 		int nno = Integer.parseInt(request.getParameter("nno"));
 		
+		
 		Notice n = new NoticeService().selectNotice(nno);
 		
 		request.setAttribute("n", n);
 		request.getRequestDispatcher("views/notice/noticeUpdateForm.jsp").forward(request, response);
+	
+	
 	}
 
 	/**

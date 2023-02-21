@@ -79,6 +79,27 @@ public class MemberUpdateController extends HttpServlet {
 			
 			response.sendRedirect(request.getContextPath()+"/myPage.me");
 		}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	}
 
 }
