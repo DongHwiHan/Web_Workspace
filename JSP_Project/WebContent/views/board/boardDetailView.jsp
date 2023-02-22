@@ -1,5 +1,10 @@
+<%@ page import = "com.kh.board.model.vo.*" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<% 
+	Board b = (Board) request.getAttribute("b");
+	Attachment at = (Attachment) request.getAttribute("at");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,28 +27,31 @@
 		<table id="detail-area"  align="center" border="1">
 			<tr>
 				<th width="70">카테고리</th>
-				<th width="70"></th>
+				<th width="70"><%=b.getCategory() %></th>
 				<th width="70">제목</th>
-				<td width="350"></td>
+				<td width="350"><%=b.getBoardTitle() %></td>
 			</tr>
 			<tr>
 				<th>작성자</th>
-				<td></td>
+				<td><%=b.getBoardWriter() %></td>
 				<th>작성일</th>
-				<td></td>
+				<td><%=b.getCreateDate() %></td>
 			</tr>
 			<tr>
 				<th>내용</th>
 				<td colspan="3">
-					<p style="height:200px"></p>
+					<p style="height:200px"><%=b.getBoardContent() %></p>
 				</td>
 			</tr>
 			<tr>
 				<th>첨부파일</th>
 				<td colspan="3">
-					첨부파일이 없을경우 : 첨부파일이 없습니다로 표시
-					첨부파일이 있을경우 : 
-					<a download="파일원본명" href="해당파일이존재하는경로">파일원본명</a>
+					<% if(at == null) { %>
+						첨부파일이 없습니다
+					<% } else { %>
+					<!-- href='/jspproject/resources/board_upfiles/2022xxxx.jpg' -->
+					<a download="<%=at.getOriginName() %>" href="<%=contextPath %>/<%=at.getFilePath()+at.getChangeName()%>"><%=at.getOriginName() %></a>
+					<% } %>
 				</td>
 			</tr>
 		</table>
@@ -54,10 +62,10 @@
 			<a href="<%=contextPath %>/list.bo?currentPage=1" class="btn btn-secondary btn-sm">목록가기</a>
 			
 			<!-- 로그인한 사용자가 해당 게시글의 작성자인 경우 -->
-			<%-- <% if(loginUser != null && loginUser.getUserId().equals( b.getBoardWriter() ) {%>
-				<a href="<%= contextPath %>/updateForm.bo?bno=<%=b.getBoardNo() %>" class="btn btn-warning btn-sm">수정하기</a>
+			<% if(loginUser != null && loginUser.getUserId().equals( b.getBoardWriter())) {%>
+				<a href="<%= contextPath %>/update.bo?bno=<%=b.getBoardNo() %>" class="btn btn-warning btn-sm">수정하기</a>
 				<a href="<%= contextPath %>/delete.bo?bno=<%= b.getBoardNo() %>" class="btn btn-danger btn-sm">삭제하기</a>
-			<% } %>		 --%>	
+			<% } %>		
 			
 		</div>
 		
@@ -110,17 +118,9 @@
 				</tbody>
 			</table>
 		</div>
-		
-		
-		
+
 		
 	</div>
-
-
-
-
-
-
 
 
 </body>
