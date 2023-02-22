@@ -12,6 +12,8 @@
 		<item key="isRegEx" value="false"/>
 		<item key="selection" value=""/>
 		<list key="findhistory">
+			<item value="insertAttachment"/>
+			<item value="insertAttachmentinsertAttachment"/>
 			<item value="USER_ID"/>
 			<item value="price"/>
 			<item value="price1"/>
