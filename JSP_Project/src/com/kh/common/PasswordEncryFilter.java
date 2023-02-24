@@ -8,17 +8,18 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
+import javax.servlet.http.HttpServletRequest;
 
 /**
- * Servlet Filter implementation class EncodingFilter
+ * Servlet Filter implementation class PasswordEncryFilter
  */
-@WebFilter("/*") // 모든 요청에 대해 Filter 먼저 작업할수있도록 설정
-public class EncodingFilter implements Filter {
+@WebFilter({"/login.me","/insert.me","/updatePwd.me"})
+public class PasswordEncryFilter implements Filter {
 
     /**
      * Default constructor. 
      */
-    public EncodingFilter() {
+    public PasswordEncryFilter() {
         // TODO Auto-generated constructor stub
     }
 
@@ -33,12 +34,10 @@ public class EncodingFilter implements Filter {
 	 * @see Filter#doFilter(ServletRequest, ServletResponse, FilterChain)
 	 */
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-		// 서블릿이호출되기전, 전처리 작업할 코드 작성
 		
-		request.setCharacterEncoding("UTF-8");
-		System.out.println("인코딩실행");
-		// doFilter함수 호출시 url가지고 더 작업할 서블릿 , 이 있는지 검사
-		chain.doFilter(request, response);
+		PasswordEncryptWrapper pew = new PasswordEncryptWrapper((HttpServletRequest)request);
+		
+		chain.doFilter(pew, response);
 	}
 
 	/**

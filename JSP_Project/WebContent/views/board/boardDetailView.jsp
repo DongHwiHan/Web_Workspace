@@ -1,7 +1,7 @@
-<%@ page import = "com.kh.board.model.vo.*" %>
+<%@ page import="com.kh.board.model.vo.*" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<% 
+<%
 	Board b = (Board) request.getAttribute("b");
 	Attachment at = (Attachment) request.getAttribute("at");
 %>
@@ -27,15 +27,15 @@
 		<table id="detail-area"  align="center" border="1">
 			<tr>
 				<th width="70">카테고리</th>
-				<th width="70"><%=b.getCategory() %></th>
+				<th width="70"><%= b.getCategory() %></th>
 				<th width="70">제목</th>
-				<td width="350"><%=b.getBoardTitle() %></td>
+				<td width="350"><%= b.getBoardTitle() %></td>
 			</tr>
 			<tr>
 				<th>작성자</th>
-				<td><%=b.getBoardWriter() %></td>
+				<td><%= b.getBoardWriter() %></td>
 				<th>작성일</th>
-				<td><%=b.getCreateDate() %></td>
+				<td><%= b.getCreateDate() %></td>
 			</tr>
 			<tr>
 				<th>내용</th>
@@ -46,11 +46,11 @@
 			<tr>
 				<th>첨부파일</th>
 				<td colspan="3">
-					<% if(at == null) { %>
+					<% if(at == null ) { %>
 						첨부파일이 없습니다
 					<% } else { %>
-					<!-- href='/jspproject/resources/board_upfiles/2022xxxx.jpg' -->
-					<a download="<%=at.getOriginName() %>" href="<%=contextPath %>/<%=at.getFilePath()+at.getChangeName()%>"><%=at.getOriginName() %></a>
+					<!--  href='/jspproject/resources/board_upfiles/2022xxxx.jpg' -->					
+<a download="<%=at.getOriginName() %>" href="<%=contextPath %>/<%= at.getFilePath()+at.getChangeName() %>"><%=at.getOriginName() %></a>
 					<% } %>
 				</td>
 			</tr>
@@ -65,7 +65,7 @@
 			<% if(loginUser != null && loginUser.getUserId().equals( b.getBoardWriter())) {%>
 				<a href="<%= contextPath %>/update.bo?bno=<%=b.getBoardNo() %>" class="btn btn-warning btn-sm">수정하기</a>
 				<button onclick="deleteBoard();" class="btn btn-danger btn-sm">삭제하기</button>
-			<% } %>		
+			<% } %>			
 			
 		</div>
 		<script>
@@ -73,10 +73,10 @@
 				if(!confirm("정말 삭제하시겠습니까?")){
 					return;
 				}
+				
 				location.href = "<%= contextPath %>/delete.bo?bno=<%= b.getBoardNo() %>";
 			}
-		</script>
-		
+		</script>	
 		<br>
 		<!-- 댓글기능 화면구현만 해두기 . 요 아래는 작업X -->
 		
@@ -126,9 +126,17 @@
 				</tbody>
 			</table>
 		</div>
-
+		
+		
+		
 		
 	</div>
+
+
+
+
+
+
 
 
 </body>

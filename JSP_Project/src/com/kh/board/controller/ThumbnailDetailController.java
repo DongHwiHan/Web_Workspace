@@ -1,7 +1,8 @@
 package com.kh.board.controller;
 
-import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -10,19 +11,19 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.kh.board.model.service.BoardService;
 import com.kh.board.model.vo.Attachment;
-import com.kh.member.model.vo.Member;
+import com.kh.board.model.vo.Board;
 
 /**
- * Servlet implementation class BoardDeleteController
+ * Servlet implementation class ThumbnailDetailController
  */
-@WebServlet(urlPatterns = "/delete.bo" , name="boardDeleteServlet" )
-public class BoardDeleteController extends HttpServlet {
+@WebServlet("/detail.th")
+public class ThumbnailDetailController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public BoardDeleteController() {
+    public ThumbnailDetailController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,25 +32,22 @@ public class BoardDeleteController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+
 		int boardNo = Integer.parseInt(request.getParameter("bno"));
 		
-		int userNo = ((Member) request.getSession().getAttribute("loginUser")).getUserNo();
-	
-		Attachment at = new BoardService().selectAttachment(boardNo);
-		
-		int result = new BoardService().deleteBoard(boardNo, userNo , at);
+		int result = new BoardService().increaseCount(boardNo);
 		
 		if(result > 0) {
-			//삭제처리
-			if(at != null) {
-				String savePath = request.getSession().getServletContext().getRealPath(at.getFilePath());				
-				new File(savePath+at.getChangeName()).delete();
-			}
-			request.getSession().setAttribute("alertMsg", "성공적으로 게시글을 삭제했습니다.");
-			response.sendRedirect(request.getContextPath()+"/list.bo");
+			Board b = new BoardService().selectBoard(boardNo);
+			
+			ArrayList<Attachment> list = new BoardService().selectAttachmentList(boardNo);
+			
+			request.setAttribute("b", b);
+			request.setAttribute("list", list);
+			
+			request.getRequestDispatcher("views/board/thumbnailDetailView.jsp").forward(request, response);
 		}else {
-			request.setAttribute("errorMsg", "게시글작성에 실패했습니다..");
+			request.setAttribute("errorMsg", "사진게시글 조회 실패");
 			request.getRequestDispatcher("views/common/errorPage.jsp").forward(request, response);
 		}
 	

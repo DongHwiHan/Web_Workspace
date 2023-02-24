@@ -91,7 +91,8 @@ public class BoardInsertController extends HttpServlet {
 			 * 그리고 결론적으로는 board_upfiles 폴더 내부에 파일들이 저장될 것이기 때문에 /를 마지막에 붙여줘야한다.
 			 *  */
 			String savePath = request.getSession().getServletContext().getRealPath("/resources/board_upfiles/");
-			//System.out.println(savePath);
+			// System.out.println(savePath);
+			// C:/Web-workspace2/JSP_..../board_upfiles/
 			/* 
 			 * 2. 전달된 파일명 수정 및 서버에 업로드 작업.
 			 *  - HttpServletRequest request => MultipartRequest multi 로 변환
@@ -167,6 +168,21 @@ public class BoardInsertController extends HttpServlet {
 			request.setAttribute("errorMsg", "전송방법이 잘못되었습니다");
 			request.getRequestDispatcher("views/common/errorPage.jsp").forward(request, response);
 		}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	}
 

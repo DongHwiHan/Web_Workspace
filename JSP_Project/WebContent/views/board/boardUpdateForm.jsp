@@ -1,7 +1,7 @@
-<%@ page import = "java.util.ArrayList, com.kh.board.model.vo.*" %>
+<%@ page import="java.util.ArrayList, com.kh.board.model.vo.*" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%
+<% 
 	ArrayList<Category> list = (ArrayList<Category>) request.getAttribute("list");
 	Board b = (Board) request.getAttribute("b");
 	Attachment at = (Attachment) request.getAttribute("at");
@@ -12,10 +12,10 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
-	#update-form>table{border:1px solid white}
-	#update-form input, #update-form textarea{
-		wudth: 100%;
-		box-sizing : border-box;
+	#update-form>table {border: 1px solid white}
+	#update-form input , #update-form textarea{
+		width:100%; 
+		box-sizing: border-box;
 	}
 </style>
 </head>
@@ -29,7 +29,7 @@
 		<br>
 		
 		<form action="<%= contextPath %>/update.bo" id="update-form" method="post" enctype="multipart/form-data">
-			<input type="hidden" name="bno" value="<%=b.getBoardNo() %>">
+			<input type="hidden" name="bno" value="<%= b.getBoardNo() %>">
 			<!-- 카테고리 , 제목, 내용, 첨부파일을 입력받고, 작성자정보  -->
 			<table align="center">
 				<tr>
@@ -42,8 +42,8 @@
 					<td width="500">
 						<select name="category"> 
 							<% for(Category c : list){ %>
-								<option value="<%=c.getCategoryNo() %>"
-								<% if(c.getCategoryName().equals(b.getCategory()) ) { %>
+								<option value="<%=c.getCategoryNo() %>"  
+								<% if(c.getCategoryName().equals(b.getCategory())){ %>
 									selected="selected"
 								<% } %>
 								><%=c.getCategoryName() %></option>
@@ -51,22 +51,21 @@
 							<!-- 내가 선택한 카테고리가 자동으로 선택되어있도록 작업해주기(js활용) -->
 						</select>
 						
-						<%-- <script>
+						<script>
 							$(function(){
-								
+									
 								$("#update-form option").each(function(){
 									/*
-										현재 반복을 진행중인 option태그의 text값과
+										현재 반복을 진행중인 option태그의 text값과 
 										db에서 가져온 categoryname값이 일치하는경우 선택되도록
 									*/
-									if($(this).text() == "<%= b.getCategory()%>"){
-										// 일치하는경우에만 option태그를 선택상태로 변경
-										%(this).attr("selected",true);
-									}
-								});
-								
-							});
-						</script> --%>
+									if($(this).text() == "<%= b.getCategory() %>"){
+										//일치하는경우에만 option태그를 선택상태로 변경
+										//$(this).attr("selected",true);
+									}	
+								})
+							})
+						</script>
 					</td>
 				</tr>
 				<tr>
@@ -82,13 +81,13 @@
 				<tr>
 					<th>첨부파일</th>
 					<td>
-						<% if(at != null){ %>
+						<% if(at != null) { %>
 							<%= at.getOriginName() %>
 							<!-- 원본파일의 파일번호, 수정명을 hidden 함께 전송할 예정 -->
-							<input type="hidden" name="originFileNo" value="<%=at.getFileNo() %>">
-							<input type="hidden" name="changeFileName" value="<%=at.getChangeName() %>">
+							<input type="hidden" name="originFileNo" value="<%= at.getFileNo() %>">
+							<input type="hidden" name="changeFileName" value="<%= at.getChangeName() %>">
 						<% } %>
-					<input type="file" name="upfile">
+						<input type="file" name="upfile">
 					</td>
 				</tr>
 			</table>
@@ -100,7 +99,16 @@
 			</div>
 			
 		</form>
+		
+		
+		
+	
 	</div>
+
+
+
+
+
 
 
 </body>
