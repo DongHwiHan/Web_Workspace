@@ -1,4 +1,6 @@
 INDEX VERSION 1.131
+C:\web-workspace\Web-workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2741598581.index
+\AjaxProject2\src
 C:\web-workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1564898548.index
 \1_Servlet\src
 C:\web-workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3787908455.index
