@@ -68,13 +68,5 @@
 		FROM MEMBER
 		WHERE USER_ID = ?
 	</entry>
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 </properties>
