@@ -1,9 +1,10 @@
-<%@ page import="com.kh.board.model.vo.*" %>
+<%@ page import="com.kh.board.model.vo.*, java.util.ArrayList" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
 	Board b = (Board) request.getAttribute("b");
 	Attachment at = (Attachment) request.getAttribute("at");
+	ArrayList<Reply> list = (ArrayList<Reply>) request.getAttribute("list");
 %>
 <!DOCTYPE html>
 <html>
@@ -103,26 +104,13 @@
 					<% } %>
 				</thead>
 				<tbody>
-					<tr>
-						<td>user01</td>
-						<td>테스트 댓글</td>
-						<td>2023-02-20</td>
-					</tr>
-					<tr>
-						<td>user01</td>
-						<td>테스트 댓글</td>
-						<td>2023-02-20</td>
-					</tr>
-					<tr>
-						<td>user01</td>
-						<td>테스트 댓글</td>
-						<td>2023-02-20</td>
-					</tr>
-					<tr>
-						<td>user01</td>
-						<td>테스트 댓글</td>
-						<td>2023-02-20</td>
-					</tr>
+					<% for(Reply r : list){ %>
+						<tr>
+							<td><%=r.getReplyWriter() %></td>
+							<td><%=r.getReplyContent() %></td>
+							<td><%=r.getCreateDate() %></td>
+						</tr>
+					<% } %>
 				</tbody>
 			</table>
 		</div>
@@ -133,6 +121,10 @@
 	</div>
 
 	<script>
+		$(function(){
+			
+			setInterval(selectReplyList, 10000);
+		});
 		function insertReply(){
 			$.ajax({
 				url : "<%= contextPath%>/rinsert.bo",
@@ -148,7 +140,7 @@
 						//새 댓글목록 불러오는 함수호출
 						selectReplyList();
 						// 댓글내용 비워주기
-						
+						$("#replyContent").val("");
 					}else{
 						alert("댓글작성에 실패했습니다.");	
 					}
@@ -167,12 +159,16 @@
 					
 					// 서버로부터 전달받은 리스트를 반복문을통해 댓글목록으로 변환
 					let result  = "";
-					for(let i of result){
-						
+					for(let i of list){
+						result += "<tr>"
+								+ "<td>"+ i.replyWriter +"</td>"
+								+ "<td>"+ i.replyContent +"</td>"
+								+ "<td>"+ i.createDate +"</td>"
+								+ "</tr>"
 						
 					}
 					
-					
+					$("#reply-area tbody").html(result);
 				},
 				error : function(){
 					console.log("게시글 목록조회 실패")

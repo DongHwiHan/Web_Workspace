@@ -10,8 +10,9 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value=""/>
+		<item key="selection" value="단순한"/>
 		<list key="findhistory">
+			<item value="단순한"/>
 			<item value="insertAttachment"/>
 			<item value="insertAttachmentinsertAttachment"/>
 			<item value="USER_ID"/>

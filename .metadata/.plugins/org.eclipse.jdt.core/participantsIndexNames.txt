@@ -15,6 +15,10 @@ C:\web-workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\372845781
 \JSP_Project\src
 C:\web-workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1943729604.index
 \JSP_Project\src
+C:\web-workspace\Web-workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3639319569.index
+\CookieProject\src
+C:\web-workspace\Web-workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1136966443.index
+\CookieProject\src
 C:\web-workspace\Web-workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1564898548.index
 \1_Servlet\src
 C:\web-workspace\Web-workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1261652606.index
@@ -39,6 +43,10 @@ C:\web-workspace\Web-workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspse
 \JSP_Project\src
 C:\web-workspace\Web-workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3728457815.index
 \JSP_Project\src
+C:\web-workspace\Web-workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2954134107.index
+\WebSocketProject\src
+C:\web-workspace\Web-workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1182667841.index
+\WebSocketProject\src
 C:\web-workspace\Web-workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2487675330.index
 \JS_Project\src
 C:\web-workspace\Web-workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1943729604.index
