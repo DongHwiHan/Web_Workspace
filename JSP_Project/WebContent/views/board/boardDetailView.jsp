@@ -132,12 +132,54 @@
 		
 	</div>
 
-
-
-
-
-
-
+	<script>
+		function insertReply(){
+			$.ajax({
+				url : "<%= contextPath%>/rinsert.bo",
+				data :{
+					content : $("#replyContent").val() , 
+					bno     : "<%= b.getBoardNo() %>"
+				}, 
+				success : function(result){
+					//댓글등록성공시  result = 1
+					
+					// 댓글등록 실패시 result = 0
+					if(result > 0){
+						//새 댓글목록 불러오는 함수호출
+						selectReplyList();
+						// 댓글내용 비워주기
+						
+					}else{
+						alert("댓글작성에 실패했습니다.");	
+					}
+					
+				}, error : function(){
+					console.log("댓글작성실패")
+				}
+			})
+		}
+		
+		function selectReplyList(){
+			$.ajax({
+				url : "<%= contextPath %>/rlist.bo",
+				data : {bno : "<%= b.getBoardNo() %>"},
+				success : function(list){
+					
+					// 서버로부터 전달받은 리스트를 반복문을통해 댓글목록으로 변환
+					let result  = "";
+					for(let i of result){
+						
+						
+					}
+					
+					
+				},
+				error : function(){
+					console.log("게시글 목록조회 실패")
+				}
+			});
+		}
+	</script>
 
 </body>
 </html>

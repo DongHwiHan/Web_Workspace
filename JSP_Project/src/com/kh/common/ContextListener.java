@@ -28,7 +28,7 @@ public class ContextListener implements ServletContextListener {
 	/**
      * @see ServletContextListener#contextInitialized(ServletContextEvent)
      */
-    public void contextInitialized(ServletContextEvent sce)  {
+    public void contextInitialized(ServletContextEvent sce)  { 
     	new AEScryptor();
     }
 	

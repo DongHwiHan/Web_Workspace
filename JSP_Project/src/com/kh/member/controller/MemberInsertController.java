@@ -53,7 +53,6 @@ public class MemberInsertController extends HttpServlet {
 		
 		email = AEScryptor.encrypt(email);
 		
-		
 		// String [] ---> String
 		// ["운동","등산"] ---> "운동,등산"
 	
