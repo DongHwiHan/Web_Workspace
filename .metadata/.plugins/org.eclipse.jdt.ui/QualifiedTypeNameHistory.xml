@@ -38,9 +38,15 @@
     <fullyQualifiedTypeName name="com.kh.member.model.service.MemberService"/>
     <fullyQualifiedTypeName name="com.kh.board.model.service.BoardService"/>
     <fullyQualifiedTypeName name="com.kh.board.model.vo.Reply"/>
-    <fullyQualifiedTypeName name="com.google.gson.Gson"/>
     <fullyQualifiedTypeName name="javax.servlet.http.Cookie"/>
     <fullyQualifiedTypeName name="javax.websocket.server.ServerEndpoint"/>
     <fullyQualifiedTypeName name="javax.websocket.Session"/>
+    <fullyQualifiedTypeName name="com.google.gson.Gson"/>
+    <fullyQualifiedTypeName name="javax.websocket.Decoder.Text"/>
+    <fullyQualifiedTypeName name="javax.websocket.EndpointConfig"/>
+    <fullyQualifiedTypeName name="java.lang.Override"/>
     <fullyQualifiedTypeName name="java.util.Set"/>
+    <fullyQualifiedTypeName name="javax.websocket.Encoder.Text"/>
+    <fullyQualifiedTypeName name="com.kh.websocket.model.vo.Message"/>
+    <fullyQualifiedTypeName name="com.kh.model.vo.Person"/>
 </qualifiedTypeNameHistroy>
