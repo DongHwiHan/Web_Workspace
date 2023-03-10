@@ -59,17 +59,6 @@ public class BoardDetailController extends HttpServlet {
 			request.getRequestDispatcher("views/common/errorPage.jsp").forward(request, response);
 		}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	}
 
 	/**
