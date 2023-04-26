@@ -89,7 +89,7 @@
 	            
 	            <div align="center">
 	            	<button type="submit" disabled>회원가입</button>
-	            	<button type="reset">초기화</button>
+	            	<button type="reset" onclick="hrefLink();">초기화</button>
 	            </div>
 	            <br><br>
 		</form>

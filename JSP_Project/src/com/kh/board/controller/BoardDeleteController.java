@@ -15,7 +15,7 @@ import com.kh.member.model.vo.Member;
 /**
  * Servlet implementation class BoardDeleteController
  */
-@WebServlet(urlPatterns = "/delete.bo" , name="boardDeleteServlet" )
+@WebServlet(urlPatterns = "/delete.bf" , name="boardDeleteServlet" )
 public class BoardDeleteController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

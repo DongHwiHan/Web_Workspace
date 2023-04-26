@@ -456,8 +456,6 @@ public class BoardDao {
 		String sql = prop.getProperty("insertAttachmentList");
 		
 		String sql2 =prop.getProperty("insertAttachment2");
-		// INSERT INTO ATTACHMENT(FILE_NO, REF_BNO, ORIGIN_NAME, CHANGE_NAME,FILE_PATH)
-		// VALUES(SEQ_FNO.NEXTVAL , $ , ? , ?, ? )
 		sql2.replace("$", "?");
 		sql2.replace("$","SEQ_BNO.CURRVAL");
 		
@@ -471,7 +469,6 @@ public class BoardDao {
 				pstmt.setString(3, at.getFilePath());
 				pstmt.setInt(4 ,at.getFileLevel());
 				
-				//실행
 				result *= pstmt.executeUpdate();
 			}
 			

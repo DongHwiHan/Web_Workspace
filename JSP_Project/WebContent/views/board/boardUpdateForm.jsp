@@ -46,7 +46,7 @@
 								<% if(c.getCategoryName().equals(b.getCategory())){ %>
 									selected="selected"
 								<% } %>
-								><%=c.getCategoryName() %></option>
+								><%=c.getCategoryName() %></option>	
 							<%} %>
 							<!-- 내가 선택한 카테고리가 자동으로 선택되어있도록 작업해주기(js활용) -->
 						</select>
